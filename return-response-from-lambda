@@ -1,0 +1,33 @@
+import json
+
+response= {
+	"contractors": [
+	{
+		"On site": 70,
+		"Total contractors": 200
+	}],
+	"permanent": [
+	{
+		"On site": 350,
+		"Total Employees": 1000
+	}
+	]
+}
+
+def lambda_handler(event, context):
+    # TODO implement
+    return {
+        'statusCode': 200,
+        'body': response[event["status"]]
+    }
+    
+ {
+	"$schema": "http://json-schema.org/draft-04/schema#"
+	"title": "Employee Status",
+	"type": "object",
+	"properties": {
+		"status": {"type": "string", "enum": ["permanent", "contractor"]}
+	},
+	"required": [status]
+}
+
